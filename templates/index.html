@@ -2,21 +2,21 @@
 
 {% block title %} Boggle {% endblock %}
 
-{% block content %} 
+{% block content %}
 
 <table>
   {% for row in boggle_board %}
-    <tr>
-      {% for letter in row %}
-        <td>{{ letter }}</td>
-      {% endfor %}
-    </tr>
+  <tr>
+    {% for letter in row %}
+    <td>{{ letter }}</td>
+    {% endfor %}
+  </tr>
   {% endfor %}
 </table>
 
-<p>High Score: JINJA in JINJA plays</p>
+<p>High Score: {{ session['highest_score'] }} in {{ session['number_plays'] }} plays</p>
 
-<p>Score: {JS} Seconds Left: {JS}</p>
+<p>Score: <span id="current-score">0</span> Seconds Left: <span id="seconds-left">60</span></p>
 
 <form id="form" action="/">
   <input id="guess" type="text" name="user_guess" value="best">

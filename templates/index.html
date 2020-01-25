@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %} Boggle {% endblock %}
+
+{% block content %} 
+
+<table>
+  {% for row in boggle_board %}
+    <tr>
+      {% for letter in row %}
+        <td>{{ letter }}</td>
+      {% endfor %}
+    </tr>
+  {% endfor %}
+</table>
+
+<p>High Score: JINJA in JINJA plays</p>
+
+<p>Score: {JS} Seconds Left: {JS}</p>
+
+<form id="form" action="/">
+  <input id="guess" type="text" name="user_guess" value="best">
+  <button>Enter</button>
+</form>
+
+<div id="result_message" hidden></div>
+
+{% endblock %}
